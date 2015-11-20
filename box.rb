@@ -5,7 +5,7 @@ require 'gtk3'
 window = Gtk::Window.new
 window.set_title('Box')
 window.set_default_size(200, 200)
-window.signal_connect("destroy") {
+window.signal_connect('destroy') {
   Gtk::main_quit
 }
 

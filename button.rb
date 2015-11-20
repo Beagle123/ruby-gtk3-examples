@@ -4,7 +4,7 @@ require 'gtk3'
 
 window = Gtk::Window.new
 window.set_title('Button')
-window.signal_connect("delete-event") {
+window.signal_connect('destroy') {
     Gtk::main_quit
 }
 

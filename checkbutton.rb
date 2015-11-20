@@ -12,20 +12,20 @@ end
 
 window = Gtk::Window.new
 window.set_title('CheckButton')
-window.signal_connect("delete-event") {
+window.signal_connect('destroy') {
     Gtk::main_quit
 }
 
 grid = Gtk::Grid.new
 window.add(grid)
 
-checkbutton = Gtk::CheckButton.new("Goshawk")
+checkbutton = Gtk::CheckButton.new('Goshawk')
 checkbutton.signal_connect('toggled') do |widget| on_toggle widget end
 grid.attach(checkbutton, 0, 0, 1, 1)
-checkbutton = Gtk::CheckButton.new("Golden Eagle")
+checkbutton = Gtk::CheckButton.new('Golden Eagle')
 checkbutton.signal_connect('toggled') do |widget| on_toggle widget end
 grid.attach(checkbutton, 0, 1, 1, 1)
-checkbutton = Gtk::CheckButton.new("Red Kite")
+checkbutton = Gtk::CheckButton.new('Red Kite')
 checkbutton.signal_connect('toggled') do |widget| on_toggle widget end
 grid.attach(checkbutton, 0, 2, 1, 1)
 

@@ -4,15 +4,15 @@ require 'gtk3'
 
 window = Gtk::Window.new
 window.set_title('Entry')
-window.signal_connect("delete-event") {
+window.signal_connect('destroy') {
     Gtk::main_quit
 }
 
 entry = Gtk::Entry.new
-entry.set_placeholder_text("Enter some text...")
+entry.set_placeholder_text('Enter some text...')
 entry.signal_connect('activate') {
     print entry.text() + "\n"
-    entry.set_text("")
+    entry.set_text('')
 }
 window.add(entry)
 

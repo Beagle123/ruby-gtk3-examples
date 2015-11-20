@@ -18,7 +18,7 @@ end
 
 window = Gtk::Window.new
 window.set_title('EntryCompletion')
-window.signal_connect('delete-event') {
+window.signal_connect('destroy') {
     Gtk::main_quit
 }
 
