@@ -5,7 +5,7 @@ require 'gtk3'
 window = Gtk::Window.new
 window.set_title('SizeGroup')
 window.signal_connect('destroy') {
-  Gtk::main_quit
+    Gtk::main_quit
 }
 
 grid = Gtk::Grid.new

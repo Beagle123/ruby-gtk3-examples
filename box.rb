@@ -6,7 +6,7 @@ window = Gtk::Window.new
 window.set_title('Box')
 window.set_default_size(200, 200)
 window.signal_connect('destroy') {
-  Gtk::main_quit
+    Gtk::main_quit
 }
 
 hbox = Gtk::Box.new(Gtk::Orientation::HORIZONTAL, 5)
