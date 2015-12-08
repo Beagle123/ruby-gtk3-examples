@@ -2,10 +2,10 @@
 
 require 'gtk3'
 
-def on_toggle widget
+def on_radiobutton_toggled widget
     active = widget.active? ? true : false
 
-    if active == true
+    if active
         print widget.label + " has been selected\n"
     end
 end
@@ -20,15 +20,15 @@ grid = Gtk::Grid.new
 window.add(grid)
 
 radiobutton1 = Gtk::RadioButton.new('Science')
-radiobutton1.signal_connect('toggled') do |widget| on_toggle widget end
+radiobutton1.signal_connect('toggled') do |widget| on_radiobutton_toggled widget end
 grid.attach(radiobutton1, 0, 0, 1, 1)
 radiobutton2 = Gtk::RadioButton.new('History')
 radiobutton2.set_group(radiobutton1)
-radiobutton2.signal_connect('toggled') do |widget| on_toggle widget end
+radiobutton2.signal_connect('toggled') do |widget| on_radiobutton_toggled widget end
 grid.attach(radiobutton2, 0, 1, 1, 1)
 radiobutton3 = Gtk::RadioButton.new('Computing')
 radiobutton3.set_group(radiobutton1)
-radiobutton3.signal_connect('toggled') do |widget| on_toggle widget end
+radiobutton3.signal_connect('toggled') do |widget| on_radiobutton_toggled widget end
 grid.attach(radiobutton3, 0, 2, 1, 1)
 
 window.show_all

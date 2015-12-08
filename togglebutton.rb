@@ -2,7 +2,7 @@
 
 require 'gtk3'
 
-def on_toggle(togglebutton)
+def on_togglebutton_toggled(togglebutton)
     active = togglebutton.active? ? true : false
 
     if active == true
@@ -19,7 +19,7 @@ window.signal_connect('destroy') {
 }
 
 togglebutton = Gtk::ToggleButton.new('ToggleButton')
-togglebutton.signal_connect('toggled') { |w| on_toggle(togglebutton) }
+togglebutton.signal_connect('toggled') { on_togglebutton_toggled(togglebutton) }
 window.add(togglebutton)
 
 window.show_all
