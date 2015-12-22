@@ -7,7 +7,7 @@ def on_combobox_changed combobox
     treeiter = combobox.active_iter
     text = model.get_value(treeiter, 0)
 
-    print "Selected programming language is " + text + "\n"
+    print 'Selected programming language is ' + text + "\n"
 end
 
 window = Gtk::Window.new
@@ -30,9 +30,9 @@ cellrenderertext = Gtk::CellRendererText.new
 combobox = Gtk::ComboBox.new
 combobox.set_model(liststore)
 combobox.pack_start(cellrenderertext, true)
-combobox.add_attribute(cellrenderertext, "text", 0)
+combobox.add_attribute(cellrenderertext, 'text', 0)
 combobox.set_active(0)
-combobox.signal_connect('changed') do |widget| on_combobox_changed widget end
+combobox.signal_connect('changed') do |combobox| on_combobox_changed combobox end
 window.add(combobox)
 
 window.show_all

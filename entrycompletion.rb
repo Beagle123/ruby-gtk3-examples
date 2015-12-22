@@ -16,6 +16,8 @@ def on_completion_toggled(radiobutton, mode, entrycompletion)
     end
 end
 
+countries = ['Ecuador', 'Brazil', 'Argentina', 'Cuba', 'Colombia']
+
 window = Gtk::Window.new
 window.set_title('EntryCompletion')
 window.signal_connect('destroy') {
@@ -27,16 +29,11 @@ grid.set_row_spacing(5)
 window.add(grid)
 
 liststore = Gtk::ListStore.new(String)
-treeiter = liststore.append
-treeiter[0] = 'Ecuador'
-treeiter = liststore.append
-treeiter[0] = 'Brazil'
-treeiter = liststore.append
-treeiter[0] = 'Argentina'
-treeiter = liststore.append
-treeiter[0] = 'Cuba'
-treeiter = liststore.append
-treeiter[0] = 'Colombia'
+
+countries.each{|country|
+    treeiter = liststore.append()
+    treeiter.set_value(0, country)
+}
 
 entrycompletion = Gtk::EntryCompletion.new
 entrycompletion.set_model(liststore)
@@ -47,12 +44,12 @@ entry.set_completion(entrycompletion)
 grid.attach(entry, 0, 0, 1, 1)
 
 radiobuttonPopup = Gtk::RadioButton.new('Popup Completion')
-radiobuttonPopup.signal_connect('toggled') do |widget| on_completion_toggled widget, 0, entrycompletion end
-grid.attach(radiobuttonPopup, 0, 1, 1, 1)
+radiobuttonPopup.signal_connect('toggled') do |radiobuttonPopup| on_completion_toggled radiobuttonPopup, 0, entrycompletion end
+grid.attach(radiobuttonPopup, 1, 0, 1, 1)
 radiobuttonInline = Gtk::RadioButton.new('Inline Completion')
 radiobuttonInline.set_group(radiobuttonPopup)
-radiobuttonInline.signal_connect('toggled') do |widget| on_completion_toggled widget, 1, entrycompletion end
-grid.attach(radiobuttonInline, 0, 2, 1, 1)
+radiobuttonInline.signal_connect('toggled') do |radiobuttonInline| on_completion_toggled radiobuttonInline, 1, entrycompletion end
+grid.attach(radiobuttonInline, 2, 0, 1, 1)
 
 window.show_all
 

@@ -14,8 +14,7 @@ comboboxtext.append('1', 'A4')
 comboboxtext.append('2', 'B5')
 comboboxtext.append('3', 'Letter')
 comboboxtext.signal_connect('changed') {
-    print "Paper size set to " + comboboxtext.active_text
-    print "\n"
+    print 'Paper size set to ' + comboboxtext.active_text + "\n"
 }
 window.add(comboboxtext)
 

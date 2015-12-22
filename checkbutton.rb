@@ -20,13 +20,13 @@ grid = Gtk::Grid.new
 window.add(grid)
 
 checkbutton = Gtk::CheckButton.new('Goshawk')
-checkbutton.signal_connect('toggled') do |widget| on_checkbutton_toggled widget end
+checkbutton.signal_connect('toggled') do |checkbutton| on_checkbutton_toggled checkbutton end
 grid.attach(checkbutton, 0, 0, 1, 1)
 checkbutton = Gtk::CheckButton.new('Golden Eagle')
-checkbutton.signal_connect('toggled') do |widget| on_checkbutton_toggled widget end
+checkbutton.signal_connect('toggled') do |checkbutton| on_checkbutton_toggled checkbutton end
 grid.attach(checkbutton, 0, 1, 1, 1)
 checkbutton = Gtk::CheckButton.new('Red Kite')
-checkbutton.signal_connect('toggled') do |widget| on_checkbutton_toggled widget end
+checkbutton.signal_connect('toggled') do |checkbutton| on_checkbutton_toggled checkbutton end
 grid.attach(checkbutton, 0, 2, 1, 1)
 
 window.show_all
