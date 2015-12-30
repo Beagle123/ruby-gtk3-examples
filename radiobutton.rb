@@ -6,7 +6,7 @@ def on_radiobutton_toggled radiobutton
     active = radiobutton.active? ? true : false
 
     if active
-        print radiobutton.label + " has been selected\n"
+        puts '%s has been selected' % radiobutton.label
     end
 end
 
@@ -20,15 +20,15 @@ grid = Gtk::Grid.new
 window.add(grid)
 
 radiobutton1 = Gtk::RadioButton.new('Science')
-radiobutton1.signal_connect('toggled') do |radiobutton| on_radiobutton_toggled radiobutton end
+radiobutton1.signal_connect('toggled') {on_radiobutton_toggled(radiobutton1)}
 grid.attach(radiobutton1, 0, 0, 1, 1)
 radiobutton2 = Gtk::RadioButton.new('History')
 radiobutton2.set_group(radiobutton1)
-radiobutton2.signal_connect('toggled') do |radiobutton| on_radiobutton_toggled radiobutton end
+radiobutton2.signal_connect('toggled') {on_radiobutton_toggled(radiobutton2)}
 grid.attach(radiobutton2, 0, 1, 1, 1)
 radiobutton3 = Gtk::RadioButton.new('Computing')
 radiobutton3.set_group(radiobutton1)
-radiobutton3.signal_connect('toggled') do |radiobutton| on_radiobutton_toggled radiobutton end
+radiobutton3.signal_connect('toggled') {on_radiobutton_toggled(radiobutton3)}
 grid.attach(radiobutton3, 0, 2, 1, 1)
 
 window.show_all

@@ -6,9 +6,9 @@ def on_switch_toggled(switch)
     active = switch.active? ? true : false
 
     if active == true
-        print "Switch is on\n"
+        puts 'Switch is on'
     else
-        print "Switch is off\n"
+        puts 'Switch is off'
     end
 end
 
@@ -19,7 +19,7 @@ window.signal_connect('destroy') {
 }
 
 switch = Gtk::Switch.new
-switch.signal_connect('notify::active') { |w| on_switch_toggled(switch) }
+switch.signal_connect('notify::active') {on_switch_toggled(switch)}
 window.add(switch)
 
 window.show_all

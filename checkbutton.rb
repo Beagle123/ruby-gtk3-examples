@@ -6,7 +6,7 @@ def on_checkbutton_toggled checkbutton
     active = checkbutton.active? ? true : false
 
     if active
-        print checkbutton.label + " has been spotted\n"
+        puts "%s has been spotted" % checkbutton.label
     end
 end
 
@@ -19,15 +19,15 @@ window.signal_connect('destroy') {
 grid = Gtk::Grid.new
 window.add(grid)
 
-checkbutton = Gtk::CheckButton.new('Goshawk')
-checkbutton.signal_connect('toggled') do |checkbutton| on_checkbutton_toggled checkbutton end
-grid.attach(checkbutton, 0, 0, 1, 1)
-checkbutton = Gtk::CheckButton.new('Golden Eagle')
-checkbutton.signal_connect('toggled') do |checkbutton| on_checkbutton_toggled checkbutton end
-grid.attach(checkbutton, 0, 1, 1, 1)
-checkbutton = Gtk::CheckButton.new('Red Kite')
-checkbutton.signal_connect('toggled') do |checkbutton| on_checkbutton_toggled checkbutton end
-grid.attach(checkbutton, 0, 2, 1, 1)
+checkbutton1 = Gtk::CheckButton.new('Goshawk')
+checkbutton1.signal_connect('toggled') {on_checkbutton_toggled(checkbutton1)}
+grid.attach(checkbutton1, 0, 0, 1, 1)
+checkbutton2 = Gtk::CheckButton.new('Golden Eagle')
+checkbutton2.signal_connect('toggled') {on_checkbutton_toggled(checkbutton2)}
+grid.attach(checkbutton2, 0, 1, 1, 1)
+checkbutton3 = Gtk::CheckButton.new('Red Kite')
+checkbutton3.signal_connect('toggled') {on_checkbutton_toggled(checkbutton3)}
+grid.attach(checkbutton3, 0, 2, 1, 1)
 
 window.show_all
 

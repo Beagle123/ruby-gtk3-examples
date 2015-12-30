@@ -11,7 +11,7 @@ window.signal_connect('destroy') {
 spinbutton = Gtk::SpinButton.new(0, 100, 1)
 spinbutton.set_value(50)
 spinbutton.signal_connect('value-changed') {
-    puts "SpinButton value set to %.2f" % spinbutton.value
+    puts 'SpinButton value set to %.2f' % spinbutton.value
 }
 window.add(spinbutton)
 

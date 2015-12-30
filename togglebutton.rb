@@ -5,10 +5,10 @@ require 'gtk3'
 def on_togglebutton_toggled(togglebutton)
     active = togglebutton.active? ? true : false
 
-    if active == true
-        print "ToggleButton is on\n"
+    if active
+        puts '%s is on' % togglebutton.label
     else
-        print "ToggleButton is off\n"
+        puts '%s is off' % togglebutton.label
     end
 end
 
@@ -18,9 +18,16 @@ window.signal_connect('destroy') {
     Gtk::main_quit
 }
 
-togglebutton = Gtk::ToggleButton.new('ToggleButton')
-togglebutton.signal_connect('toggled') { on_togglebutton_toggled(togglebutton) }
-window.add(togglebutton)
+grid = Gtk::Grid.new
+window.add(grid)
+
+togglebutton1 = Gtk::ToggleButton.new('ToggleButton 1')
+togglebutton1.signal_connect('toggled') {on_togglebutton_toggled(togglebutton1)}
+grid.attach(togglebutton1, 0, 0, 1, 1)
+
+togglebutton2 = Gtk::ToggleButton.new('ToggleButton 2')
+togglebutton2.signal_connect('toggled') {on_togglebutton_toggled(togglebutton2)}
+grid.attach(togglebutton2, 0, 1, 1, 1)
 
 window.show_all
 
