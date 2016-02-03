@@ -11,11 +11,11 @@ dialog.add_button('_OK', Gtk::ResponseType::OK)
 response = dialog.run
 
 if response == Gtk::ResponseType::OK
-    puts "OK button clicked"
+    puts 'OK button clicked'
 elsif response == Gtk::ResponseType::CANCEL
-    puts "Cancel button clicked"
+    puts 'Cancel button clicked'
 else
-    puts "Dialog closed"
+    puts 'Dialog closed'
 end
 
 dialog.destroy
