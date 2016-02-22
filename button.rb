@@ -9,9 +9,9 @@ window.signal_connect('destroy') {
 }
 
 button = Gtk::Button.new
-button.set_label("Click Me!")
+button.set_label('Click Me!')
 button.signal_connect('clicked') {
-    print "Button was clicked!\n"
+    puts 'Button was clicked!'
 }
 window.add(button)
 

@@ -11,7 +11,7 @@ window.signal_connect('destroy') {
 entry = Gtk::Entry.new
 entry.set_placeholder_text('Enter some text...')
 entry.signal_connect('activate') {
-    print entry.text() + "\n"
+    puts 'Entry text: %s' % entry.text
     entry.set_text('')
 }
 window.add(entry)

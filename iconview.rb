@@ -6,7 +6,7 @@ def on_item_activated iconview
     iconview.selected_items.each{|treepath|
         treeiter = iconview.model.get_iter(treepath)
         value = iconview.model.get_value(treeiter, 0)
-        print 'Selected item: ' + value + "\n"
+        puts 'Selected item: %s' % value
     }
 end
 

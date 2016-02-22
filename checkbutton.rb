@@ -6,7 +6,7 @@ def on_checkbutton_toggled checkbutton
     active = checkbutton.active? ? true : false
 
     if active
-        puts "%s has been spotted" % checkbutton.label
+        puts '%s has been spotted' % checkbutton.label
     end
 end
 
