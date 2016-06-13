@@ -3,10 +3,9 @@
 require 'gtk3'
 
 def progress_timeout progressbar
-    value = progressbar.fraction + 0.1
+    value = progressbar.fraction + 0.01
     value = 0.0 if value > 1.0
     progressbar.fraction = value
-
     true
 end
 
@@ -33,6 +32,6 @@ grid.attach(checkbutton, 0, 1, 1, 1)
 
 window.show_all
 
-GLib::Timeout.add(500) do progress_timeout(progressbar) end
+GLib::Timeout.add(50) do progress_timeout(progressbar) end
 
 Gtk.main
